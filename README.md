@@ -20,6 +20,9 @@ My name is Hamish, I am currently studying at the *University of Auckland* as a 
 You can learn more about the course here:
 [Stats 220 Course Page](https://study.auckland.ac.nz/ords/r/uoa/catalogue/course?p6_code=STATS%20220)
 
+Best car ever made
+[2026 Corvette ZR1X](https://www.chevrolet.com/performance/corvette/zr1x)
+
 ## How I currently feel about university
 
 A meme that captures how I currently feel about my university studies:![](https://media.tenor.com/eFZSa02cKVcAAAAM/studying.gif)
