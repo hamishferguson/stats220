@@ -1,0 +1,64 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+
+```
+
+## YouTube Viewing Behaviour Analysis
+
+This report explores my YouTube viewing behaviour. It analyses the types of videos watched, their duration, and the reasons for watching them.
+
+```{r}
+library(tidyverse)
+
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTF7G7hJoyVXN4F3aAIoknucrHYL533PgAippuzmtS9ocg6kzV0iGvIkH8JMrKPFCIdZaLq88ZZ6GmC/pub?gid=118961393&single=true&output=csv")
+
+latest_data <- logged_data %>%
+  rename( 
+    time = `What time did you start watching the video? (hour of day)`,
+    video_type = `What type of video was it?`,
+    duration = `How long was the video (minutes)`,
+    reason = `What was your main reason for watching this video?`
+    )
+mean_duration <- mean(latest_data$duration)
+max_duration <- max(latest_data$duration)
+
+```
+Summary
+
+The average video duration was `r round(mean_duration, 1)` minutes. 
+The longest video watched was `r max_duration` minutes
+
+### Bar chart 1
+``` {r}
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = video_type),
+           fill = "#FF991C")+
+  labs(
+    title = "Number of Videos by Type",
+    x = "Video Type",
+    y = "Count"
+  )
+``` 
+
+### Bar chart 2
+``` {R}
+latest_data %>%
+  ggplot() +
+  geom_bar(aes(x = reason),
+           fill = "#26F7FD") +
+  labs(
+    title = "Reasons for Watching Videos",
+    x = "Reason",
+    y = "Count"
+  )
+``` 
